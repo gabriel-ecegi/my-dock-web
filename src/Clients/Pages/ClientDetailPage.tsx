@@ -1,0 +1,21 @@
+import { ClientDetail } from "Clients/Components/ClientDetail";
+import { useParams } from "react-router-dom";
+
+export const ClientDetailPage: React.FunctionComponent = () => {
+  //get id from url
+
+  const params = useParams();
+
+  const id = Number(params.id);
+  console.log(id);
+
+  if (Number.isNaN(id)) {
+    return <>V url chybí ID klienta</>;
+  }
+
+  return (
+    <>
+      <ClientDetail id={id} />
+    </>
+  );
+};

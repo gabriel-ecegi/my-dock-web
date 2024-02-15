@@ -1,10 +1,10 @@
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
-import { appRouter } from "./Pages/Routing/AppRouter";
+import { appRouter } from "./Infrastructure/Routing/AppRouter";
 import { ThemeProvider } from "@mui/material";
-import { getTheme } from "Components/Layout/Themes/Themes";
+import { getTheme } from "Infrastructure/Themes/Themes";
 import i18n from "i18next";
-import { CzechResourcesDictionary } from "Translations/CzechResourcesDictionary";
+import { CzechResourcesDictionary } from "Infrastructure/Translations/CzechResourcesDictionary";
 import { initReactI18next } from "react-i18next";
 import { z } from "zod";
 import { zodI18nMap } from "zod-i18n-map";

@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "pnpm dlx @biomejs/biome lint .",
     "preview": "vite preview",
-    "generate-types": "pnpm dlx rest2ts -s https://localhost:7122/swagger/v1/swagger.json -t ./src/Api -v import.meta.env.VITE_API_URL --nullstr 1"
+    "generate-types": "pnpm dlx rest2ts -s https://localhost:7122/swagger/v1/swagger.json -t ./src/Infrastructure/Api -v import.meta.env.VITE_API_URL --nullstr 1"
   },
   "dependencies": {
     "@easepick/bundle": "^1.2.1",

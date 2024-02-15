@@ -11,12 +11,12 @@ export default defineConfig(() => {
     },
     resolve: {
       alias: {
-        Pages: "/src/Pages",
-        Utils: "/src/Utils",
-        Components: "/src/Components",
-        Hooks: "/src/Hooks",
-        Translations: "/src/Translations",
-        Api: "/src/Api",
+        Infrastructure: "/src/Infrastructure",
+        Shared: "/src/Shared",
+        Forms: "/src/Forms",
+        Auth: "/src/Auth",
+        Dashboard: "/src/Dashboard",
+        Clients: "/src/Clients",
       },
     },
     build: {
