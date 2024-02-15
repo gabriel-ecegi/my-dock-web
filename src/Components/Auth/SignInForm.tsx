@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Typography } from "@mui/material";
+import { useSignInMutation } from "Api/Auth/Mutations/useSignInMutation";
 import { BlButton } from "Components/Shared/Buttons/BlButton";
 import { BlFormInput } from "Components/Shared/Inputs/Form/BlFormInput";
 import { Resources, useResource } from "Translations/Resources";
@@ -35,16 +36,24 @@ export const SignInForm: React.FunctionComponent<Props> = () => {
 
   console.log(errors);
   const { t } = useResource();
+
+  const signInMutation = useSignInMutation();
+
+  const submit = (data: SignUpSchemaType) => {
+    signInMutation.mutate(data);
+  };
+
   return (
     <Layout>
       <Typography variant="h1" mb={4}>
         {t(PageResources.Title)}
       </Typography>
 
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <form onSubmit={handleSubmit(submit)}>
         <BlFormInput
           control={control}
           name="login"
+          autoComplete="login"
           errors={errors}
           label={t(PageResources.Login.Label)}
         />
@@ -54,6 +63,7 @@ export const SignInForm: React.FunctionComponent<Props> = () => {
           name="password"
           errors={errors}
           type="password"
+          autoComplete="password"
           label={t(PageResources.Password.Label)}
         />
 

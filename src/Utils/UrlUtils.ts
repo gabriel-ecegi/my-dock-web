@@ -11,6 +11,13 @@ export const AppRouting = {
   Dashboard: {
     path: () => "/dashboard",
   },
+  Clients: {
+    path: () => "/clients",
+  },
+  ClientDetail: {
+    route: "/clients/:id",
+    path: (id: number) => `/clients/${id}`,
+  },
 } as const;
 
 type RouteObject<T extends any[] = any[]> = {

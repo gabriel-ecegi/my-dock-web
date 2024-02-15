@@ -16,6 +16,7 @@ export default defineConfig(() => {
         Components: "/src/Components",
         Hooks: "/src/Hooks",
         Translations: "/src/Translations",
+        Api: "/src/Api",
       },
     },
     build: {
