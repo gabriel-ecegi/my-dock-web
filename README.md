@@ -1,30 +1,66 @@
-# React + TypeScript + Vite
+# Mydock+
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Vite
 
-Currently, two official plugins are available:
+Pro build aplikace je použit Vite s SWC pluginem pro rychlejší build aplikace. Konfigurace je v vite.config.ts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# React
 
-## Expanding the ESLint configuration
+Je použit React. Jsou silně preferovány funkční komponenty a hooky. Pro práci s formuláři je použita knihovna react-hook-form.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# TypeScript
 
-- Configure the top-level `parserOptions` property like this:
+Na všetchno je použit TypeScript ve striktním módu. Pravidla se nastavují v biome.json
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+# Biome
+
+Pro lintování a formátování kódu je použit Biome. Je konfigurovatelný v biome.json. Nainstalovat https://marketplace.visualstudio.com/items?itemName=biomejs.biome do VSCode.
+
+# react-query
+
+Pro fetchování dat je použita knihovna react-query. Slouží zároveň i jako forma cache pro data. Není vyloučeno, že v budoucnu bude použita i knihovna pro state management. Pro vývojové prostředí jsou k dispozici i devtools.
+
+# react-router
+
+Pro routování aplikace je použita knihovna react-router.
+
+# mui
+
+Pro stylování aplikace je použita knihovna Material-UI. Nad komponentami jsou vytvořeny vlastní SAB komponenty - tlačítka, inputy, tabulky, atd.
+Nad knihovou jsou vytvořeny i wrapper komponenty pro jednodušší práci s react-hook-form.
+
+# react-hook-form
+
+Pro práci s formuláři je použita knihovna react-hook-form.
+
+# zod
+
+Pro validaci formulářů je použita knihovna zod. Její internalizována do češtiny s pomocí knihovny zod-i18n-map.
+
+# vite-module-federation
+
+TBD
+
+# i18next a react-i18next
+
+Překlady jsou řešeny pomocí knihovny i18next a react-i18next. Pro přidání nového překladu vložte novou property to ResourceDictionary. Řešení je silnětypove - typesafe, tím padám musíte přidat překlad do každého jazyka.
+
+# Příkazy
+
+Spuštění vývojového serveru na localhost:3000
+
+```bash
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Provedení produkčního buildu aplikace
+
+```bash
+npm run build
+```
+
+Provedení lintování kódu
+
+```bash
+npm run lint
+```
