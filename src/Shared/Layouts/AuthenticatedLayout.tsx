@@ -116,7 +116,7 @@ export const AuthenticatedLayout: FC<PropsWithChildren<Props>> = ({
                 onClick={() => signOut()}
                 startIcon={<LogoutIcon />}
               >
-                {t(Resources.Common.Logout)}
+                {t(Resources.Common.SignOut)}
               </Button>
             </Stack>
           </Stack>

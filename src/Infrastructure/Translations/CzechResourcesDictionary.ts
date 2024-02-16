@@ -63,7 +63,7 @@ export const CzechResourcesDictionary: ResourceDictionary = {
     PersonalNumber: "RČ",
     ProcessedByRepresentative: "Zpracoval{{gender}} {{name}}",
     SendByRepresentative: "Odeslal{{gender}} {{name}}",
-    Logout: "Odhlásit se",
+    SignOut: "Odhlásit se",
   },
   Errors: {
     ApplicationError: {

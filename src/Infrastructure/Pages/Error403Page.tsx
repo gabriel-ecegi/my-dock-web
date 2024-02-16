@@ -5,8 +5,8 @@ import { useResource, Resources } from "Infrastructure/Translations/Resources";
 import { BlButton } from "Shared/Buttons/BlButton";
 import { UnauthenticatedLayout } from "Shared/Layouts/UnauthenticatedLayout";
 import { UnstyledLink } from "Shared/Routing/UnstyledLink";
-import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
+import { useSignOutMutation } from "Auth/Api/Mutations/useSignOutMutation";
 
 const StyledIcon = styled(NotInterestedIcon)`
   margin: 20px;
@@ -16,11 +16,7 @@ const StyledIcon = styled(NotInterestedIcon)`
 export const Error403Page: React.FunctionComponent = (_) => {
   const { t } = useResource();
 
-  const navigate = useNavigate();
-
-  const signOut = () => {
-    navigate("/sign-out");
-  };
+  const { mutate: signOut } = useSignOutMutation();
 
   return (
     <UnauthenticatedLayout title={"403"}>
@@ -47,7 +43,9 @@ export const Error403Page: React.FunctionComponent = (_) => {
             </BlButton>
           </UnstyledLink>
 
-          <BlButton onClick={signOut}>Odhlásit</BlButton>
+          <BlButton onClick={() => signOut()}>
+            {t(Resources.Common.SignOut)}
+          </BlButton>
         </Stack>
       </Box>
     </UnauthenticatedLayout>
