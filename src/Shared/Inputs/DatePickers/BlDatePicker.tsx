@@ -8,7 +8,7 @@ import {
   StyledFormInput as BaseStyledFormInput,
   StyledFormLabelWrapper,
   StyledValidationText,
-} from "Shared/FormStyles";
+} from "Forms/Components/FormStyles";
 import { datePickerFieldStyles } from "Shared/Inputs/DatePickers/Styles";
 import { StyledInputLabel } from "Shared/StyledComponents";
 import { ExtractProps } from "Infrastructure/Utils/ObjectUtils";

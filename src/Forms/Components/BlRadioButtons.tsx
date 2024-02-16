@@ -21,7 +21,7 @@ import {
   StyledFormInput,
   StyledFormLabelWrapper,
   StyledValidationText,
-} from "Shared/FormStyles";
+} from "Forms/Components/FormStyles";
 import { useFieldError } from "Forms/Hooks/useFieldError";
 import { CodeListItem } from "Infrastructure/Models/ICodeListDto";
 import styled from "@emotion/styled";

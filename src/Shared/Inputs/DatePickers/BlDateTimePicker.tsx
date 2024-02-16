@@ -6,14 +6,14 @@ import { ExtractProps } from "Infrastructure/Utils/ObjectUtils";
 import { isValid, parseISO } from "date-fns";
 import cs from "date-fns/locale/cs";
 import styled from "@emotion/styled";
+import { datePickerFieldStyles } from "Shared/Inputs/DatePickers/Styles";
+import { StyledInputLabel } from "Shared/StyledComponents";
 import {
   StyledFormControl,
   StyledFormLabelWrapper,
   StyledFormInput,
   StyledValidationText,
-} from "Shared/FormStyles";
-import { datePickerFieldStyles } from "Shared/Inputs/DatePickers/Styles";
-import { StyledInputLabel } from "Shared/StyledComponents";
+} from "Forms/Components/FormStyles";
 
 type DateTimePickerProps = ExtractProps<typeof DateTimePicker>;
 

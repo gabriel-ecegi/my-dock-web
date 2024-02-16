@@ -1,5 +1,5 @@
 import { TextFieldProps } from "@mui/material";
-import { StyledFormControl } from "Shared/FormStyles";
+import { StyledFormControl } from "Forms/Components/FormStyles";
 import {
   BlTextInput,
   MaskBlockType,

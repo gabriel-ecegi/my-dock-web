@@ -4,7 +4,7 @@ import {
   StyledFormInput,
   StyledFormLabelWrapper,
   StyledValidationText,
-} from "Shared/FormStyles";
+} from "Forms/Components/FormStyles";
 import { BlDropdown as DropdownInput } from "Shared/Inputs/BlDropdown";
 import { StyledInputLabel } from "Shared/StyledComponents";
 import { CodeListItem } from "Infrastructure/Models/ICodeListDto";
