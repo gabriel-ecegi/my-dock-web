@@ -14,7 +14,7 @@ export const ApplicationErrorPage: React.FunctionComponent<FallbackProps> = (
   console.log("error", error);
 
   return (
-    <UnauthenticatedLayout title={"403"}>
+    <UnauthenticatedLayout title={"Chyba"}>
       <Typography variant="h4">
         Je nám líto v aplikaci došlo k chybě.
       </Typography>
