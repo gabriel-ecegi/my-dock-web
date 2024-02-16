@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import biomePlugin from "vite-plugin-biome";
 import checker from "vite-plugin-checker";
+import federation from "@originjs/vite-plugin-federation";
 
 export default defineConfig(() => {
   return {
@@ -22,12 +23,24 @@ export default defineConfig(() => {
     },
     build: {
       sourcemap: true,
+      modulePreload: false,
+      target: "esnext",
+      minify: false,
+      cssCodeSplit: false,
     },
     plugins: [
       react(),
       biomePlugin(),
       checker({
         typescript: true,
+      }),
+      federation({
+        name: "my-dock-web-plus",
+        filename: "remoteEntry.js",
+        exposes: {
+          "./Clients/ClientsTable": "./src/Clients/Modules/ClientsTableModule",
+        },
+        shared: ["react", "react-dom"],
       }),
     ],
   };

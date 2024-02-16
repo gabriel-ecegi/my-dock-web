@@ -4,7 +4,13 @@
     "enabled": true
   },
   "files": {
-    "ignore": ["Api.ts", "src/Shared/Icons/*"]
+    "ignore": [
+      "node_modules/*",
+      "dist/*",
+      "vscode/*",
+      "Api.ts",
+      "src/Shared/Icons/*"
+    ]
   },
   "linter": {
     "enabled": true,

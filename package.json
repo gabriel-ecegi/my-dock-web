@@ -7,7 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "pnpm dlx @biomejs/biome lint .",
-    "preview": "vite preview",
+    "build:dev": "env-cmd -f .env.development pnpm run build",
+    "build:test": "env-cmd -f .env.test pnpm run build",
+    "build:prod": "env-cmd -f .env.prod pnpm run build",
+    "preview": "vite preview --port 5001 --strictPort",
     "generate-types": "pnpm dlx rest2ts -s https://localhost:7122/swagger/v1/swagger.json -t ./src/Infrastructure/Api -v import.meta.env.VITE_API_URL --nullstr 1 --cookies 1"
   },
   "dependencies": {
@@ -23,6 +26,7 @@
     "@tanstack/react-query-devtools": "^5.20.5",
     "bignumber.js": "^9.1.2",
     "date-fns": "2.30.0",
+    "env-cmd": "^10.1.0",
     "i18next": "^23.8.2",
     "lodash-es": "^4.17.21",
     "react": "^18.2.0",

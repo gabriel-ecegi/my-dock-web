@@ -28,10 +28,9 @@ const StyledCell = styled(Box)``;
 type Props = {};
 
 export const ClientsTable: React.FunctionComponent<Props> = () => {
-  const { data, isLoading, error } = useClientsQuery();
+  const { data, isLoading } = useClientsQuery();
 
   const clients: ClientDto[] = data?.data || [];
-  console.log(error);
   const navigate = useNavigate();
 
   return (
@@ -82,3 +81,5 @@ export const ClientsTable: React.FunctionComponent<Props> = () => {
     </>
   );
 };
+
+export default ClientsTable;

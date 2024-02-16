@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import {
   Box,
-  CssBaseline,
   AppBar,
   Toolbar,
   Typography,
@@ -15,7 +14,13 @@ import {
   Button,
   Stack,
 } from "@mui/material";
-import { FC, PropsWithChildren, useEffect } from "react";
+import {
+  FC,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  useEffect,
+} from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ClientIcon from "@mui/icons-material/Group";
 import TaskIcon from "@mui/icons-material/Assignment";
@@ -65,11 +70,21 @@ const StyledListItem = styled(ListItem)`
   padding: 0;
 `;
 
+type AuthenticatedLayoutContextType = {
+  isMenuShown: boolean;
+};
+
+export const AuthenticatedLayoutContext =
+  createContext<AuthenticatedLayoutContextType>({
+    isMenuShown: false,
+  });
+
 export const AuthenticatedLayout: FC<PropsWithChildren<Props>> = ({
   title,
   children,
 }) => {
   const { t } = useResource();
+  const { isMenuShown } = useContext(AuthenticatedLayoutContext);
 
   useEffect(() => {
     document.title = `${title} | ${t(Resources.Common.AppName)}`;
@@ -92,57 +107,61 @@ export const AuthenticatedLayout: FC<PropsWithChildren<Props>> = ({
 
   return (
     <StyledBox>
-      <CssBaseline />
-      <StyledAppBar position="fixed">
-        <Toolbar>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-            width="100%"
-          >
-            <Typography variant="h6" noWrap component="div">
-              {title}
-            </Typography>
-            <Stack
-              direction={"row"}
-              justifyContent="flex-end"
-              alignItems="center"
-              spacing={2}
-            >
-              <Typography>{userLogin}</Typography>
-              <Button
-                color="inherit"
-                onClick={() => signOut()}
-                startIcon={<LogoutIcon />}
+      {isMenuShown && (
+        <>
+          <StyledAppBar position="fixed">
+            <Toolbar>
+              <Stack
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                width="100%"
               >
-                {t(Resources.Common.SignOut)}
-              </Button>
-            </Stack>
-          </Stack>
-        </Toolbar>
-      </StyledAppBar>
-      <StyledDrawer variant="permanent">
-        <Toolbar />
-        <Box
-          sx={{
-            overflow: "auto",
-          }}
-        >
-          <List>
-            {menuItems.map((item) => (
-              <UnstyledLink to={item.to} key={item.text}>
-                <StyledListItem disablePadding>
-                  <ListItemButton>
-                    <ListItemIcon>{item.icon}</ListItemIcon>
-                    <ListItemText primary={item.text} />
-                  </ListItemButton>
-                </StyledListItem>
-              </UnstyledLink>
-            ))}
-          </List>
-        </Box>
-      </StyledDrawer>
+                <Typography variant="h6" noWrap component="div">
+                  {title}
+                </Typography>
+                <Stack
+                  direction={"row"}
+                  justifyContent="flex-end"
+                  alignItems="center"
+                  spacing={2}
+                >
+                  <Typography>{userLogin}</Typography>
+                  <Button
+                    color="inherit"
+                    onClick={() => signOut()}
+                    startIcon={<LogoutIcon />}
+                  >
+                    {t(Resources.Common.SignOut)}
+                  </Button>
+                </Stack>
+              </Stack>
+            </Toolbar>
+          </StyledAppBar>
+          <StyledDrawer variant="permanent">
+            <Toolbar />
+            <Box
+              sx={{
+                overflow: "auto",
+              }}
+            >
+              <List>
+                {menuItems.map((item) => (
+                  <UnstyledLink to={item.to} key={item.text}>
+                    <StyledListItem disablePadding>
+                      <ListItemButton>
+                        <ListItemIcon>{item.icon}</ListItemIcon>
+                        <ListItemText primary={item.text} />
+                      </ListItemButton>
+                    </StyledListItem>
+                  </UnstyledLink>
+                ))}
+              </List>
+            </Box>
+          </StyledDrawer>
+        </>
+      )}
+
       <StyledMainContent component="main">
         <Toolbar />
         {children}
