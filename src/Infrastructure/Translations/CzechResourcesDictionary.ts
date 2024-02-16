@@ -3,7 +3,7 @@ import translation from "zod-i18n-map/locales/cs/zod.json";
 
 export const CzechResourcesDictionary: ResourceDictionary = {
   Common: {
-    AppName: "Placené poradenství",
+    AppName: "myDOCK+",
     Years: "{{count}} let",
     Years_one: "{{count}} rok",
     Years_two: "{{count}} roky",
@@ -63,6 +63,7 @@ export const CzechResourcesDictionary: ResourceDictionary = {
     PersonalNumber: "RČ",
     ProcessedByRepresentative: "Zpracoval{{gender}} {{name}}",
     SendByRepresentative: "Odeslal{{gender}} {{name}}",
+    Logout: "Odhlásit se",
   },
   Errors: {
     ApplicationError: {

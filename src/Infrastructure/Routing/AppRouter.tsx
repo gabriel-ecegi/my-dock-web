@@ -7,6 +7,8 @@ import { UnauthenticatedRoute } from "Infrastructure/Routing/UnauthenticatedRout
 import { AppRouting, getRoute } from "Infrastructure/Utils/UrlUtils";
 import { createBrowserRouter } from "react-router-dom";
 import { ClientDetailPage } from "Clients/Pages/ClientDetailPage";
+import { ClientsPage } from "Clients/Pages/ClientsPage";
+import { TasksPage } from "Tasks/Pages/TasksPage";
 
 const appRoutes = [
   {
@@ -26,6 +28,14 @@ const appRoutes = [
     ),
   },
   {
+    path: getRoute(AppRouting.Clients),
+    element: (
+      <AuthenticatedRoute>
+        <ClientsPage />
+      </AuthenticatedRoute>
+    ),
+  },
+  {
     path: getRoute(AppRouting.ClientDetail),
     element: (
       <AuthenticatedRoute>
@@ -38,7 +48,15 @@ const appRoutes = [
     element: <Error403Page />,
   },
   {
-    path: getRoute(AppRouting.Error404),
+    path: getRoute(AppRouting.Tasks),
+    element: (
+      <AuthenticatedRoute>
+        <TasksPage />
+      </AuthenticatedRoute>
+    ),
+  },
+  {
+    path: "*",
     element: <Error404Page />,
   },
 ];

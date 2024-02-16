@@ -61,6 +61,7 @@ export interface ResourceDictionary extends ResourceLanguage {
     PersonalNumber: string;
     ProcessedByRepresentative: string;
     SendByRepresentative: string;
+    Logout: string;
   };
   Errors: {
     ApplicationError: {

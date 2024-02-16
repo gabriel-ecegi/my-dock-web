@@ -1,4 +1,5 @@
 import { ClientDetail } from "Clients/Components/ClientDetail";
+import { AuthenticatedLayout } from "Shared/Layouts/AuthenticatedLayout";
 import { useParams } from "react-router-dom";
 
 export const ClientDetailPage: React.FunctionComponent = () => {
@@ -14,8 +15,8 @@ export const ClientDetailPage: React.FunctionComponent = () => {
   }
 
   return (
-    <>
+    <AuthenticatedLayout title="Detail klienta">
       <ClientDetail id={id} />
-    </>
+    </AuthenticatedLayout>
   );
 };

@@ -185,7 +185,7 @@ export const BlDataTable = <T extends object>(props: Props<T>) => {
 
       {!isPaginationDisabled && (
         <TablePagination
-          rowsPerPageOptions={[10, 25, 50]}
+          rowsPerPageOptions={[5, 10, 25, 50]}
           component="div"
           count={totalCount ?? rows.length}
           rowsPerPage={rowsPerPage}

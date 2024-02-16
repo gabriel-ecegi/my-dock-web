@@ -18,6 +18,9 @@ export const AppRouting = {
     route: "/clients/:id",
     path: (id: number) => `/clients/${id}`,
   },
+  Tasks: {
+    path: () => "/tasks",
+  },
 } as const;
 
 type RouteObject<T extends any[] = any[]> = {

@@ -17,6 +17,7 @@ export default defineConfig(() => {
         Auth: "/src/Auth",
         Dashboard: "/src/Dashboard",
         Clients: "/src/Clients",
+        Tasks: "/src/Tasks",
       },
     },
     build: {

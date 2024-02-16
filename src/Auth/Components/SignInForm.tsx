@@ -1,20 +1,12 @@
-import styled from "@emotion/styled";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Typography } from "@mui/material";
 import { useSignInMutation } from "Auth/Api/Mutations/useSignInMutation";
 import { BlFormInput } from "Forms/Components/BlFormInput";
 import { Resources, useResource } from "Infrastructure/Translations/Resources";
 import { BlButton } from "Shared/Buttons/BlButton";
+import { FunctionComponent } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-const Layout = styled(Box)`
-  margin-top: ${(props) => props.theme.spacing(10)};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
 
 const SignUpSchema = z.object({
   login: z.string().email(),
@@ -27,7 +19,7 @@ const PageResources = Resources.SignIn;
 
 type Props = {};
 
-export const SignInForm: React.FunctionComponent<Props> = () => {
+export const SignInForm: FunctionComponent<Props> = () => {
   const {
     control,
     handleSubmit,
@@ -44,7 +36,7 @@ export const SignInForm: React.FunctionComponent<Props> = () => {
   };
 
   return (
-    <Layout>
+    <Box>
       <Typography variant="h1" mb={4}>
         {t(PageResources.Title)}
       </Typography>
@@ -71,6 +63,6 @@ export const SignInForm: React.FunctionComponent<Props> = () => {
           {t(PageResources.Button)}
         </BlButton>
       </form>
-    </Layout>
+    </Box>
   );
 };
