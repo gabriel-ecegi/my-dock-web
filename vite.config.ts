@@ -1,11 +1,14 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import biomePlugin from "vite-plugin-biome";
 import checker from "vite-plugin-checker";
 import federation from "@originjs/vite-plugin-federation";
 
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+
   return {
+    base: env.VITE_BASE_URL,
     server: {
       open: true,
       port: 3000,
