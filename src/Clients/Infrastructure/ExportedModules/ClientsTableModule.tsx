@@ -1,19 +1,15 @@
-import ClientsTable from "Clients/Components/ClientsTable";
 import { clientsRouter } from "Clients/Routing/ClientsRouter";
-import { AppWrapper } from "Infrastructure/Configuration/AppWrapper";
+import { AppBootstrapper } from "Infrastructure/Configuration/AppBootstrapper";
 import { AuthenticatedLayoutContext } from "Shared/Layouts/AuthenticatedLayout";
 import { RouterProvider } from "react-router-dom";
 
 export const ClientsTableModule: React.FunctionComponent = () => {
   return (
-    <AppWrapper>
+    <AppBootstrapper>
       <AuthenticatedLayoutContext.Provider value={{ isMenuShown: false }}>
-        <RouterProvider
-          router={clientsRouter}
-          fallbackElement={<ClientsTable />}
-        />
+        <RouterProvider router={clientsRouter} />
       </AuthenticatedLayoutContext.Provider>
-    </AppWrapper>
+    </AppBootstrapper>
   );
 };
 

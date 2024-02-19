@@ -9,7 +9,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { PropsWithChildren } from "react";
 
-export const AppWrapper: React.FunctionComponent<PropsWithChildren> = ({
+export const AppBootstrapper: React.FunctionComponent<PropsWithChildren> = ({
   children,
 }) => {
   const theme = getTheme();
@@ -37,4 +37,4 @@ export const AppWrapper: React.FunctionComponent<PropsWithChildren> = ({
   );
 };
 
-export default AppWrapper;
+export default AppBootstrapper;
