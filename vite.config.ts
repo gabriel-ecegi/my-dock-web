@@ -38,7 +38,8 @@ export default defineConfig(() => {
         name: "my-dock-web-plus",
         filename: "remoteEntry.js",
         exposes: {
-          "./Clients/ClientsTable": "./src/Clients/Modules/ClientsTableModule",
+          "./Clients/ClientsTable":
+            "./src/Clients/Infrastructure/ExportedModules/ClientsTableModule",
         },
         shared: ["react", "react-dom"],
       }),
