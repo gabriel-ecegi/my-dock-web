@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm' # Specify cache for pnpm
+          cache: 'npm' # Specify cache for pnpm
       - name: Install pnpm
         run: npm install -g pnpm # You may skip this if pnpm is pre-installed in the GitHub Actions runner
       - name: Install dependencies
