@@ -28,12 +28,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          # Previously, we specified cache: 'pnpm', but since pnpm is not found, let's install it manually.
+          # cache: 'pnpm' # This can be uncommented if setup-node action starts supporting pnpm caching properly
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies with pnpm
-        run: |
-          echo "::add-matcher::.github/pnpm-error-matcher.json"
-          pnpm install
+        run: pnpm install
 
       - name: Build
         run: pnpm run build
