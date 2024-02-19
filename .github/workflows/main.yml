@@ -1,4 +1,4 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Simple workflow for deploying static content to GitHub Pages using pnpm
 name: Deploy static content to Pages
 
 on:
@@ -21,7 +21,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -34,7 +33,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'pnpm'
+          cache: 'pnpm' # Specify cache for pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm # You may skip this if pnpm is pre-installed in the GitHub Actions runner
       - name: Install dependencies
         run: pnpm install
       - name: Build
@@ -44,7 +45,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload dist repository
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
