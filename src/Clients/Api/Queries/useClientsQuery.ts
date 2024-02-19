@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getClients } from "Infrastructure/Api/Api";
+import { GetClientsFetchResponse, apiGet } from "Infrastructure/Api/Api";
+// import { getClients } from "Infrastructure/Api/Api";
 
 export const CLIENTS_QUERY_KEY = "CLIENTS_QUERY";
 
@@ -11,3 +12,13 @@ export function useClientsQuery() {
 
   return query;
 }
+
+const getClients = (
+  headers = new Headers()
+): Promise<GetClientsFetchResponse> => {
+  return apiGet(
+    "http://vyvoj.mydock.lh/test-remote-app/getClients",
+    headers,
+    {}
+  ) as Promise<GetClientsFetchResponse>;
+};

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAuthUserInfo } from "Infrastructure/Api/Api";
+import { GetAuthUserInfoFetchResponse, apiGet } from "Infrastructure/Api/Api";
+// import { getAuthUserInfo } from "Infrastructure/Api/Api";
 
 export const USER_INFO_QUERY_KEY = "USER_INFO";
 
@@ -11,3 +12,13 @@ export function useUserInfoQuery() {
 
   return query;
 }
+
+export const getAuthUserInfo = (
+  headers = new Headers()
+): Promise<GetAuthUserInfoFetchResponse> => {
+  return apiGet(
+    "http://vyvoj.mydock.lh/test-remote-app/login",
+    headers,
+    {}
+  ) as Promise<GetAuthUserInfoFetchResponse>;
+};
