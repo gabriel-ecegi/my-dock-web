@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { ScopedCssBaseline, ThemeProvider } from "@mui/material";
 import { getTheme } from "Infrastructure/Themes/Themes";
 import i18n from "i18next";
 import { CzechResourcesDictionary } from "Infrastructure/Translations/CzechResourcesDictionary";
@@ -31,8 +31,7 @@ export const AppWrapper: React.FunctionComponent<PropsWithChildren> = ({
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
+        <ScopedCssBaseline>{children}</ScopedCssBaseline>
       </ThemeProvider>
     </QueryClientProvider>
   );
