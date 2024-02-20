@@ -47,9 +47,7 @@ export const ClientsTable: React.FunctionComponent<Props> = () => {
           { id: "address", label: "Address" },
           { id: "action", label: "", maxWidth: 0, justifySelf: "flex-end" },
         ]}
-        getHeaderCell={(column) => {
-          return <div>{column.label ?? column.id}</div>;
-        }}
+        getHeaderCell={(column) => <div>{column.label ?? column.id}</div>}
         rowsPerPage={5}
         onRowClick={(row) => {
           navigate(getPath(AppRouting.ClientDetail, row.id));
