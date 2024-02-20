@@ -1,6 +1,7 @@
 import { Theme, css } from "@emotion/react";
 import { Link, LinkProps } from "react-router-dom";
 import styled from "@emotion/styled";
+import isPropValid from "@emotion/is-prop-valid";
 
 type Props = React.PropsWithoutRef<LinkProps> &
   React.RefAttributes<HTMLAnchorElement> & {
@@ -22,7 +23,9 @@ export const StyledHtmlLink = styled.a`
   ${baseLinkStyles}
 `;
 
-const StyledLink = styled(Link)<{ $isUnderlined?: boolean }>`
+const StyledLink = styled(Link, { shouldForwardProp: isPropValid })<{
+  $isUnderlined?: boolean;
+}>`
   ${baseLinkStyles}
   ${(props) => props.$isUnderlined && "text-decoration: underline;"}
 `;

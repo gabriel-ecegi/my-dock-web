@@ -5,6 +5,7 @@ import { FieldErrorProps, useFieldError } from "Forms/Hooks/useFieldError";
 import * as React from "react";
 import { IMaskInputProps, IMaskMixin } from "react-imask";
 import { isNoU } from "Infrastructure/Utils/ObjectUtils";
+import isPropValid from "@emotion/is-prop-valid";
 
 export type MaskType = IMaskInputProps<any>["mask"];
 export type MaskBlockType = Record<
@@ -41,7 +42,7 @@ type Props = TextFieldProps &
     accept?: string;
   };
 
-const StyledInput = styled(TextField)<{
+const StyledInput = styled(TextField, { shouldForwardProp: isPropValid })<{
   $hasFilterStyle: boolean;
   $isEmpty: boolean;
 }>`

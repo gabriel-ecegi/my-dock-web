@@ -3,6 +3,7 @@ import Button, { ButtonProps } from "@mui/material/Button";
 import { BlTooltip } from "Shared/BlTooltip";
 import { CircularProgress, TooltipProps } from "@mui/material";
 import styled from "@emotion/styled";
+import isPropValid from "@emotion/is-prop-valid";
 
 export type DefaultButtonProps = Omit<ButtonProps, "title"> & {
   title?: string | JSX.Element;
@@ -15,7 +16,9 @@ export type DefaultButtonProps = Omit<ButtonProps, "title"> & {
   isLoading?: boolean;
 };
 
-const StyledButton = styled(Button)<{ $isSquare: boolean }>`
+const StyledButton = styled(Button, { shouldForwardProp: isPropValid })<{
+  $isSquare: boolean;
+}>`
   min-width: 0;
   ${(props) => props.$isSquare && "aspect-ratio: 1;"}
 
