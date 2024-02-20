@@ -17,7 +17,7 @@ export const getAuthUserInfo = (
   headers = new Headers()
 ): Promise<GetAuthUserInfoFetchResponse> => {
   return apiGet(
-    "http://vyvoj.mydock.lh/test-remote-app/login",
+    "https://vyvoj.mydock.sab-apps.blogic.cz/test-remote-app/login",
     headers,
     {}
   ) as Promise<GetAuthUserInfoFetchResponse>;

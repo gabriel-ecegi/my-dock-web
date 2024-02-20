@@ -19,7 +19,7 @@ export const getClientsId = (
 ): Promise<GetClientsIdFetchResponse> => {
   return apiGet(
     // `${API_URL}/api/clients/${id}`,
-    `http://vyvoj.mydock.lh/test-remote-app/getClientDetail?id=${id}`,
+    `https://vyvoj.mydock.sab-apps.blogic.cz/test-remote-app/getClientDetail?id=${id}`,
     headers,
     {}
   ) as Promise<GetClientsIdFetchResponse>;

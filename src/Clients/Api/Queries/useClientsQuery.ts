@@ -17,7 +17,7 @@ const getClients = (
   headers = new Headers()
 ): Promise<GetClientsFetchResponse> => {
   return apiGet(
-    "http://vyvoj.mydock.lh/test-remote-app/getClients",
+    "https://vyvoj.mydock.sab-apps.blogic.cz/test-remote-app/getClients",
     headers,
     {}
   ) as Promise<GetClientsFetchResponse>;
