@@ -1,15 +1,29 @@
-import { RouterProvider } from "react-router-dom";
-import { appRouter } from "./Infrastructure/Routing/AppRouter";
-import { AppBootstrapper } from "Infrastructure/Configuration/AppBootstrapper";
-import { AuthenticatedLayoutContext } from "Shared/Layouts/AuthenticatedLayout";
+import { Suspense, lazy, useEffect, useState } from "react";
+// import WholeApp from "WholeApp";
+
+const ClientsTableModule = lazy(
+  () => import("./Clients/Infrastructure/ExportedModules/ClientsTableModule")
+);
+
+const WholeApp = lazy(() => import("./WholeApp"));
+
+type Module = "ClientsModule" | null;
 
 function App() {
+  const [module, setModule] = useState<Module>(null);
+
+  useEffect(() => {
+    const rootElement = document.getElementById("root");
+    const dataModule = rootElement?.getAttribute("data-module") as Module;
+
+    setModule(dataModule);
+  }, []);
+
   return (
-    <AppBootstrapper>
-      <AuthenticatedLayoutContext.Provider value={{ isMenuShown: true }}>
-        <RouterProvider router={appRouter} />
-      </AuthenticatedLayoutContext.Provider>
-    </AppBootstrapper>
+    <Suspense>
+      {module === "ClientsModule" && <ClientsTableModule />}
+      {module === null && <WholeApp />}
+    </Suspense>
   );
 }
 
